@@ -1,0 +1,47 @@
+.contactSection {
+  margin: 4rem 0;
+  width: 100%;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: #1e3a8a;
+  padding-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.icon {
+  font-size: 1.2rem;   /* Reduce from 1.5rem to 1.2rem or as needed */
+  color: #60a5fa;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.contactCard {
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px rgba(30, 58, 138, 0.08);
+  background: rgba(239, 246, 255, 0.7);
+  padding: 2rem;
+  border-left: 8px solid #60a5fa;
+}
+
+.contactText {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #1e293b;
+}
+
+.contactLink {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.contactLink:hover {
+  color: #1d4ed8;
+}

@@ -1,0 +1,30 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  box-shadow: 0 4px 24px rgba(30, 58, 138, 0.08);
+  background: rgba(239, 246, 255, 0.85);
+  border-bottom: 1px solid #bfdbfe;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(8px);
+}
+
+.name {
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #1e3a8a;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #2563eb;
+  margin-top: 0.25rem;
+}

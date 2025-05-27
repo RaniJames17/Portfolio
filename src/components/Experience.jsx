@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './Experience.module.css';
 
 const experiences = [
   {
@@ -42,9 +43,10 @@ export default function Experience() {
   const [hoveredIdx, setHoveredIdx] = useState(null);
 
   return (
-    <section className="my-10 w-full">
-      <h2 className="text-2xl font-bold mb-6 text-left text-blue-700 dark:text-yellow-300 flex items-center gap-2 pl-2">
-        <span role="img" aria-label="briefcase">💼</span> Experience
+    <section className={styles.experienceSection}>
+      <h2 className={styles.heading}>
+        <span role="img" aria-label="experience" className={styles.icon}>💼</span>
+        Experience
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {experiences.map((exp, idx) => (
