@@ -39,23 +39,28 @@ const experiences = [
   }
 ];
 
-export default function Experience() {
-  const [hoveredIdx, setHoveredIdx] = useState(null);
+export default function Experience({ darkMode }) {
+  const [openIdx, setOpenIdx] = useState(null);
 
   return (
-    <section className={styles.experienceSection}>
+    <section
+      className={
+        darkMode
+          ? `${styles.experienceSection} ${styles.dark}`
+          : styles.experienceSection
+      }
+    >
       <h2 className={styles.heading}>
         <span role="img" aria-label="experience" className={styles.icon}>💼</span>
         Experience
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className={styles.experienceGrid}>
         {experiences.map((exp, idx) => (
           <ExperienceCard
             key={idx}
             {...exp}
-            showDetails={hoveredIdx === idx}
-            onMouseEnter={() => setHoveredIdx(idx)}
-            onMouseLeave={() => setHoveredIdx(null)}
+            open={openIdx === idx}
+            onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
           />
         ))}
       </div>
@@ -63,28 +68,27 @@ export default function Experience() {
   );
 }
 
-function ExperienceCard({ title, company, period, details, showDetails, onMouseEnter, onMouseLeave }) {
+function ExperienceCard({ title, company, period, details }) {
   return (
     <div
-      className="mb-4 border rounded-lg shadow p-4 bg-white dark:bg-gray-900 transition-all duration-200"
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
+      className={styles.experienceCard}
+      tabIndex={0}
+      role="button"
+      aria-label={`${title} at ${company}`}
     >
-      <div className="w-full text-left font-semibold text-lg text-blue-700 dark:text-yellow-300 flex justify-between items-center">
-        <span>
-          {title} @ {company} <span className="text-sm text-gray-500">({period})</span>
-        </span>
-        <span className="ml-2">{showDetails ? "▲" : "▼"}</span>
-      </div>
-      {showDetails && (
-        <div className="mt-2 text-gray-700 dark:text-gray-200">
-          <ul className="list-disc pl-5 space-y-1 text-gray-800 dark:text-gray-200 text-sm">
-            {details.map((item, i) => (
-              <li key={i}>{item}</li>
-            ))}
-          </ul>
+      <div className={styles.cardHeader}>
+        <div>
+          <span className={styles.role}>{title}</span>
+          <span className={styles.company}>@ {company}</span>
         </div>
-      )}
+        <div className={styles.period}>{period}</div>
+        <span className={styles.toggleIcon}>▼</span>
+      </div>
+      <ul className={styles.detailsList}>
+        {details.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 }

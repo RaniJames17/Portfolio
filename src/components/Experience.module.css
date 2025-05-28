@@ -1,17 +1,27 @@
 .experienceSection {
-  margin: 4rem 0;
+  margin: 4rem auto;
   width: 100%;
+  max-width: 1200px; /* slightly wider for 3 cards */
+  background: transparent;
+  color: inherit;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .experienceSection {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
 
 .heading {
   font-size: 2rem;
   font-weight: 800;
   margin-bottom: 2rem;
-  color: #1e3a8a;
-  padding-left: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  color: #1e293b !important; /* Always visible in light mode */
+  z-index: 2;
+  position: relative;
 }
 
 .icon {
@@ -20,22 +30,132 @@
   margin-right: 0.5rem;
 }
 
+.experienceGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 900px) {
+  .experienceGrid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns side by side */
+    gap: 2rem;
+  }
+}
+
 .experienceCard {
-  border-radius: 1.5rem;
-  box-shadow: 0 4px 24px rgba(30, 58, 138, 0.08);
-  background: rgba(239, 246, 255, 0.7);
-  padding: 2rem;
-  border-left: 8px solid #60a5fa;
-  margin-bottom: 1.5rem;
+  background: rgba(96, 165, 250, 0.08);
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.06);
+  padding: 1.5rem 1.25rem;
+  border-left: 5px solid #2563eb;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+  cursor: pointer;
+  border: 1.5px solid transparent;
 }
 
-.experienceText {
+.experienceCard:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 6px 24px rgba(30, 58, 138, 0.13);
+  background: #2563eb;
+  color: #fff;
+  border: 1.5px solid #2563eb;
+}
+
+.role {
   font-size: 1.15rem;
-  line-height: 1.7;
-  color: #1e293b;
+  font-weight: 700;
+  color: #2563eb !important; /* Always highlight, even on hover */
+  margin-bottom: 0.25rem;
+  transition: color 0.2s;
 }
 
-.jobTitle {
+.experienceCard:hover .role,
+.experienceCard:focus .role {
+  color: #ffe066 !important; /* Or pick a visible accent for hover, e.g. yellow */
+}
+
+.company {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+
+.period {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin-bottom: 0.75rem;
+}
+
+.description {
+  font-size: 1.05rem;
+  color: inherit;
+  line-height: 1.6;
+}
+
+.detailsList {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+  font-size: 1.05rem;
+  color: inherit;
+  line-height: 1.6;
+  list-style: disc;
+  display: none;
+}
+
+.experienceCard:hover .detailsList,
+.experienceCard:focus .detailsList {
+  display: block;
+}
+
+.toggleIcon {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  font-size: 1.1rem;
   color: #2563eb;
-  font-weight: 600;
+  pointer-events: none;
+  transition: transform 0.2s;
+}
+
+.experienceCard:hover .toggleIcon,
+.experienceCard:focus .toggleIcon {
+  transform: rotate(180deg);
+}
+
+.dark {
+  background: transparent;
+  color: inherit;
+}
+
+.dark .experienceCard {
+  background: rgba(30, 41, 59, 0.7);
+  color: #f1f5f9;
+  border-left: 5px solid #60a5fa;
+}
+
+.dark .experienceCard:hover {
+  background: #2563eb;
+  color: #fff;
+  border: 1.5px solid #60a5fa;
+}
+
+.dark .role {
+  color: #60a5fa !important; /* Always highlight in dark mode */
+}
+
+.dark .experienceCard:hover .role,
+.dark .experienceCard:focus .role {
+  color: #ffe066 !important; /* Or another visible accent for dark mode hover */
+}
+
+.dark .company {
+  color: #f1f5f9;
+}
+
+.dark .heading {
+  color: #f1f5f9 !important; /* Always visible in dark mode */
 }

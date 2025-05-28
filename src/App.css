@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+/* App.css or index.css */
+body {
+  background: linear-gradient(to bottom right, #dbeafe, #fff, #bfdbfe);
+  color: #1e293b;
+  transition: background 0.5s, color 0.5s;
+}
+
+body.dark {
+  background: linear-gradient(to bottom right, #111827, #0f172a, #1e293b);
+  color: #f1f5f9;
+}

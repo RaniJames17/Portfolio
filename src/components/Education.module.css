@@ -1,40 +1,71 @@
 .educationSection {
-  margin: 4rem 0;
+  margin: 4rem auto;
   width: 100%;
+  max-width: 1000px;
+  background: transparent;
+  color: inherit;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
-.heading {
-  font-size: 2rem;
-  font-weight: 800;
-  margin-bottom: 2rem;
-  color: #1e3a8a;
-  padding-left: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+@media (min-width: 640px) {
+  .educationSection {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
 
-.icon {
-  font-size: 1.5rem;
-  color: #60a5fa;
-  margin-right: 0.5rem;
+.educationGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 900px) {
+  .educationGrid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns side by side */
+    gap: 2rem;
+  }
 }
 
 .educationCard {
-  border-radius: 1.5rem;
+  border-left: 6px solid #60a5fa;
+  background: rgba(255,255,255,0.7);
   box-shadow: 0 4px 24px rgba(30, 58, 138, 0.08);
-  background: rgba(239, 246, 255, 0.7);
-  padding: 2rem;
-  border-left: 8px solid #60a5fa;
-}
-
-.educationText {
-  font-size: 1.15rem;
-  line-height: 1.7;
-  color: #1e293b;
+  border-radius: 1.25rem;
+  padding: 2rem 2rem 2rem 2.5rem;
+  margin: 0;
+  transition: background 0.3s;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .degree {
   color: #2563eb;
   font-weight: 600;
+}
+
+.institution {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+
+.period {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin-bottom: 0.75rem;
+}
+
+.details {
+  font-size: 1.05rem;
+  color: inherit;
+  line-height: 1.6;
+}
+
+.dark .educationCard {
+  background: rgba(30,41,59,0.7);
+  border-left: 6px solid #2563eb;
+  color: #f1f5f9;
 }

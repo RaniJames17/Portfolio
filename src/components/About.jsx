@@ -3,7 +3,13 @@ import styles from './About.module.css';
 
 export default function About({ darkMode }) {
   return (
-    <section className={styles.aboutSection}>
+    <section
+      className={
+        darkMode
+          ? `${styles.aboutSection} ${styles.dark}`
+          : styles.aboutSection
+      }
+    >
       <div className={styles.headerRow}>
         <h2 className={styles.heading}>
           <span role="img" aria-label="about" className={styles.icon}>💡</span>

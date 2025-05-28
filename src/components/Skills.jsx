@@ -1,28 +1,40 @@
 import React from 'react';
-import { FaCheckCircle } from 'react-icons/fa';
 import styles from './Skills.module.css';
 
 const skills = [
-  'SQL', 'PL/SQL', 'ASP.NET', 'JavaScript', 'HTML', 'CSS', 'C#',
-  'Oracle', 'PostgreSQL', 'Performance Tuning',
-  'Git', 'Jenkins', 'SonarQube', 'CI/CD', 'Agile', 'Mentoring'
+  { name: "JavaScript", icon: "🟨" },
+  { name: "HTML5", icon: "🔶" },
+  { name: "CSS3", icon: "🔷" },
+  { name: "C#", icon: "💻" },
+  { name: "ASP.NET", icon: "🌐" },
+  { name: "SQL", icon: "🗄️" },
+  { name: "PL/SQL", icon: "📊" },
+  { name: "Oracle", icon: "🍊" },
+  { name: "PostgreSQL", icon: "🐘" },
+  { name: "Git", icon: "🔗" },
+  { name: "Jenkins", icon: "🤖" },
+  { name: "SonarQube", icon: "🌊" },
+  { name: "CI/CD", icon: "🚀" },
 ];
 
-export default function Skills() {
+export default function Skills({ darkMode }) {
   return (
-    <section className={styles.skillsSection}>
-      <h2 className={styles.heading}>
-        <span role="img" aria-label="skills">🛠️</span>
-        Skills
-      </h2>
-      <ul className={styles.skillsGrid}>
+    <section
+      className={
+        darkMode
+          ? `${styles.skillsSection} ${styles.dark}`
+          : styles.skillsSection
+      }
+    >
+      <h2 className={styles.heading}>Skills</h2>
+      <div className={styles.skillsGrid}>
         {skills.map((skill) => (
-          <li key={skill} className={styles.skillCard}>
-            <FaCheckCircle style={{ color: "#60a5fa", marginBottom: "0.25rem", opacity: 0.7 }} />
-            <span>{skill}</span>
-          </li>
+          <div key={skill.name} className={styles.skillCard} tabIndex={0}>
+            <span className={styles.skillIcon} aria-hidden="true">{skill.icon}</span>
+            <span className={styles.skillName}>{skill.name}</span>
+          </div>
         ))}
-      </ul>
+      </div>
     </section>
   );
 }
